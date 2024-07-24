@@ -1,5 +1,6 @@
 import Image from "next/image";
 import data from '../json/locations.json';
+import MapLink from "@/components/MapLink";
 
 export default function Home() {
 
@@ -35,31 +36,21 @@ export default function Home() {
               isAfterSpecificDate() && <a
                 href="https://lockeb.bumpey.net/"
                 type="button"
-                // onClick={() => handleClick(name)}
-                onClick={() => handleClick('Bunratty')}
-                data-amplify-analytics-on="click"
-                data-amplify-analytics-name="click"
-                data-amplify-analytics-attrs={`attr1:bunratty`}
                 className="flex-grow inline-flex justify-center text-center items-center px-6 py-3 my-3 border border-transparent shadow-sm text-2xl font-medium tracking-wide rounded-md text-gray-100 bg-locke-red hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-locke-red cursor-pointer"
               >
                 Order from Bunratty
               </a>
             }
-
-            <Button
-              text={`Order from Castletroy`}
-              name={'Castletroy'}
-              url={'https://lockec.bumpey.net'}
-              handleClickBtn={handleClick}
-            />
+            <a
+              href="https://lockec.bumpey.net"
+              type="button"
+              className="flex-grow inline-flex justify-center text-center items-center px-6 py-3 my-3 border border-transparent shadow-sm text-2xl font-medium tracking-wide rounded-md text-gray-100 bg-locke-red hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-locke-red cursor-pointer"
+            >
+              Order from Castletroy
+            </a>
             <a
               href="https://locke.bumpey.net/"
               type="button"
-              // onClick={() => handleClick(name)}
-              onClick={() => handleClick('City Centre')}
-              data-amplify-analytics-on="click"
-              data-amplify-analytics-name="click"
-              data-amplify-analytics-attrs={`attr1:citycentre`}
               className="flex-grow inline-flex justify-center text-center items-center px-6 py-3 my-3 border border-transparent shadow-sm text-2xl font-medium tracking-wide rounded-md text-gray-100 bg-locke-red hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-locke-red cursor-pointer"
             >
               Order from City Centre
@@ -71,11 +62,17 @@ export default function Home() {
           </div>
           <div className="flex justify-between pb-6 flex-wrap gap-y-2">
             {data.map((d, i) => (
-              <MapLink key={i} destination={d.name} url={d.mapLink} />
+              <MapLink key={d.name} destination={d.name} url={d.mapLink} />
             ))}
           </div>
           <div className="flex justify-center pb-6">
-            <Button text="Our Website" url="https://www.lockeburger.ie/" />
+            <a
+              href="https://www.lockeburger.ie/"
+              type="button"
+              className="flex-grow inline-flex justify-center text-center items-center px-6 py-3 my-3 border border-transparent shadow-sm text-2xl font-medium tracking-wide rounded-md text-gray-100 bg-locke-red hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-locke-red cursor-pointer"
+            >
+              Website
+            </a>
           </div>
         </div>
       </main>
